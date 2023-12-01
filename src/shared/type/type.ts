@@ -3,6 +3,7 @@ export interface FormLabelProps {
 }
 export interface ModalProps {
   open: boolean;
+  onCloseModal: ()=> void;
   setOpen: (boolean: boolean) => void;
 };
 

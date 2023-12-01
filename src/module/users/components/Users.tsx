@@ -8,11 +8,13 @@ import { useState } from "react";
 const Users = () => {
   const user = useUsers();
   const userList = user?.data?.data;
-
   const [open, setOpen] = useState(false);
 
   const onClick = () => {
     setOpen(true);
+  };
+  const onCloseModal = () => {
+    setOpen(false);
   };
 
   return (
@@ -111,7 +113,7 @@ const Users = () => {
           </div>
         </div>
       </div>
-      <Modal setOpen={setOpen} open={open} />
+      <Modal setOpen={setOpen} open={open} onCloseModal={onCloseModal} />
     </>
   );
 };
