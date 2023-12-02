@@ -1,9 +1,11 @@
+
 export interface FormLabelProps {
   label: string;
 }
+
 export interface ModalProps {
   open: boolean;
-  onCloseModal: ()=> void;
+  children: JSX.Element;
   setOpen: (boolean: boolean) => void;
 };
 

@@ -4,10 +4,12 @@ import BackArrow from "../../../shared/components/BackArrow";
 import Button from "../../../shared/components/Button";
 import Modal from "../../../shared/components/Modal";
 import { useState } from "react";
+import AddUsersModal from "./AddUsersModal";
 
 const Users = () => {
   const user = useUsers();
   const userList = user?.data?.data;
+
   const [open, setOpen] = useState(false);
 
   const onClick = () => {
@@ -23,13 +25,9 @@ const Users = () => {
       <div className="px-4 sm:px-6 lg:p-8">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
-            <h1 className="text-base font-semibold leading-6 text-gray-900">
+            <h1 className="text-2xl font-semibold leading-6 text-gray-900">
               Users
             </h1>
-            <p className="mt-2 text-sm text-gray-700">
-              A list of all the users in your account including their name,
-              title, email and role.
-            </p>
           </div>
           <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
             <Button title="+ Add User" onClick={onClick} />
@@ -113,7 +111,10 @@ const Users = () => {
           </div>
         </div>
       </div>
-      <Modal setOpen={setOpen} open={open} onCloseModal={onCloseModal} />
+
+      <Modal open={open} setOpen={setOpen}>
+        <AddUsersModal onCloseModal={onCloseModal} setOpen={setOpen} />
+      </Modal>
     </>
   );
 };
