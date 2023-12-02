@@ -7,8 +7,8 @@ import { useState } from "react";
 import AddUsersModal from "./AddUsersModal";
 
 const Users = () => {
-  const user = useUsers();
-  const userList = user?.data?.data;
+  const { data, refetch } = useUsers();
+  const userList = data?.data;
 
   const [open, setOpen] = useState(false);
 
@@ -113,7 +113,7 @@ const Users = () => {
       </div>
 
       <Modal open={open} setOpen={setOpen}>
-        <AddUsersModal onCloseModal={onCloseModal} setOpen={setOpen} />
+        <AddUsersModal onCloseModal={onCloseModal} setOpen={setOpen} refetch={refetch}/>
       </Modal>
     </>
   );

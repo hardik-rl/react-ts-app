@@ -4,10 +4,11 @@ import { addUser } from "../Api";
 import { toast } from "react-toastify";
 import { AddUserFormProps, AddUserProp } from "../types";
 
-const useAddUser = ({ onCloseModal }: AddUserProp) => {
+const useAddUser = ({ onCloseModal, refetch }: AddUserProp) => {
   return useMutation((data: AddUserFormProps) => addUser(data), {
-    onSuccess: (data:any) => {
-      toast.success(data?.statusText);
+    onSuccess: () => {
+      toast.success("User Added Successfully");
+      refetch();
       onCloseModal();
     },
     onError: (error: AxiosError<{ message: string }>) => {

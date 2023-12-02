@@ -6,13 +6,13 @@ import useAddUser from "../hooks/useAddUser";
 import { useAddUserForm } from "../hooks/useAddUserForm";
 import { AddUsersModalProps } from "../types";
 
-const AddUsersModal = ({ onCloseModal, setOpen }: AddUsersModalProps) => {
+const AddUsersModal = ({ onCloseModal, setOpen, refetch }: AddUsersModalProps) => {
   const cancelButtonRef = useRef(null);
-  const { mutate: createUserFn } = useAddUser({ onCloseModal });
+  const { mutate: createUserFn } = useAddUser({ onCloseModal, refetch });
   const { handleSubmit, values, errors, handleChange } = useAddUserForm(() =>
     createUserFn(values)
   );
-
+  
   return (
     <div>
       <form onSubmit={handleSubmit}>
