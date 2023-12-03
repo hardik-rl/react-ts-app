@@ -16,4 +16,5 @@ export interface AddUsersModalProps {
   onCloseModal: () => void;
   refetch: (options?: RefetchOptions) => Promise<any>;
   setOpen: (boolean: boolean) => void;
+  onSuccess: () => void;
 }

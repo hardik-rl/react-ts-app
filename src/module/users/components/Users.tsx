@@ -1,22 +1,23 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import useUsers from "../hooks/useUsers";
 import BackArrow from "../../../shared/components/BackArrow";
 import Button from "../../../shared/components/Button";
 import Modal from "../../../shared/components/Modal";
-import { useState } from "react";
-import AddUsersModal from "./AddUsersModal";
+import CommonModal from "./CommonModal";
 
 const Users = () => {
-  const { data, refetch } = useUsers();
-  const userList = data?.data;
+  const { data } = useUsers();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
 
-  const [open, setOpen] = useState(false);
-
-  const onClick = () => {
-    setOpen(true);
+  const openModal = (user: any) => {
+    setSelectedUser(user);
+    setIsModalOpen(true);
   };
-  const onCloseModal = () => {
-    setOpen(false);
+
+  const closeModal = () => {
+    setSelectedUser(null);
+    setIsModalOpen(false);
   };
 
   return (
@@ -30,9 +31,10 @@ const Users = () => {
             </h1>
           </div>
           <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-            <Button title="+ Add User" onClick={onClick} />
+            <Button title="+ Add User" onClick={() => setIsModalOpen(true)} />
           </div>
         </div>
+
         <div className="mt-8 flow-root">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -78,7 +80,7 @@ const Users = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {userList?.map((item: any) => (
+                  {data?.data?.map((item: any) => (
                     <tr key={item.id}>
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                         {item.id}
@@ -96,12 +98,7 @@ const Users = () => {
                         {item.phone}
                       </td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-sm font-medium sm:pr-0">
-                        <Link
-                          to="#"
-                          className="text-indigo-600 hover:text-indigo-900"
-                        >
-                          Edit
-                        </Link>
+                        <button onClick={() => openModal(item)}>Edit</button>
                       </td>
                     </tr>
                   ))}
@@ -111,9 +108,12 @@ const Users = () => {
           </div>
         </div>
       </div>
-
-      <Modal open={open} setOpen={setOpen}>
-        <AddUsersModal onCloseModal={onCloseModal} setOpen={setOpen} refetch={refetch}/>
+      <Modal open={isModalOpen} setOpen={closeModal}>
+        <CommonModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          selectedUser={selectedUser}
+        />
       </Modal>
     </>
   );
