@@ -11,8 +11,10 @@ import { addUser, updateUser } from "../Api";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 import { addUserSchema } from "../validation";
+import Button from "../../../shared/components/Button";
+import { AddUserFormProps, CommonModalProps } from "../types";
 
-const CommonModal = ({ isOpen, onClose, selectedUser }: any) => {
+const CommonModal = ({ isOpen, onClose, selectedUser }: CommonModalProps) => {
   const queryClient = useQueryClient();
   const mutation = useMutation(selectedUser ? updateUser : addUser, {
     onSuccess: () => {
@@ -24,7 +26,7 @@ const CommonModal = ({ isOpen, onClose, selectedUser }: any) => {
       onClose();
     },
     onError: (error: AxiosError<{ message: string }>) => {
-      toast(error?.response?.data.message, {
+      toast(error.message, {
         type: "error",
       });
     },
@@ -38,8 +40,7 @@ const CommonModal = ({ isOpen, onClose, selectedUser }: any) => {
     phone: "",
   };
 
-
-  const handleSubmit = (values:any) => {
+  const handleSubmit = (values: AddUserFormProps) => {
     mutation.mutate(values);
   };
 
@@ -62,7 +63,11 @@ const CommonModal = ({ isOpen, onClose, selectedUser }: any) => {
                     placeholder="Enter Your Id"
                     as={FormControl}
                   />
-                  <ErrorMessage name="id" component="div" className="text-red-600" />
+                  <ErrorMessage
+                    name="id"
+                    component="div"
+                    className="text-red-600 text-sm"
+                  />
                 </div>
                 <div>
                   <FormLabel label="Name" />
@@ -71,12 +76,11 @@ const CommonModal = ({ isOpen, onClose, selectedUser }: any) => {
                     name="firstname"
                     placeholder="Enter Your First Name"
                     as={FormControl}
-                    
                   />
                   <ErrorMessage
                     name="firstname"
                     component="div"
-                    className="text-red-600"
+                    className="text-red-600 text-sm"
                   />
                 </div>
                 <div>
@@ -90,7 +94,7 @@ const CommonModal = ({ isOpen, onClose, selectedUser }: any) => {
                   <ErrorMessage
                     name="lastname"
                     component="div"
-                    className="text-red-600"
+                    className="text-red-600 text-sm"
                   />
                 </div>
                 <div>
@@ -104,7 +108,7 @@ const CommonModal = ({ isOpen, onClose, selectedUser }: any) => {
                   <ErrorMessage
                     name="email"
                     component="div"
-                    className="text-red-600"
+                    className="text-red-600 text-sm"
                   />
                 </div>
                 <div>
@@ -118,24 +122,23 @@ const CommonModal = ({ isOpen, onClose, selectedUser }: any) => {
                   <ErrorMessage
                     name="phone"
                     component="div"
-                    className="text-red-600"
+                    className="text-red-600 text-sm"
                   />
                 </div>
               </div>
-              <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-                <button
+              <div className="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3">
+                <Button
+                  variant="primary"
                   type="submit"
-                  className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2"
-                >
-                  Save
-                </button>
-                <button
+                  title="Save"
+                  onClick={() => {}}
+                />
+                <Button
+                  variant="secondary"
                   type="button"
-                  className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
+                  title="Cancel"
                   onClick={onClose}
-                >
-                  Cancel
-                </button>
+                />
               </div>
             </Form>
           </Formik>

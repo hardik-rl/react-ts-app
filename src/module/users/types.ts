@@ -18,3 +18,14 @@ export interface AddUsersModalProps {
   setOpen: (boolean: boolean) => void;
   onSuccess: () => void;
 }
+
+export interface UserListType {
+  data: any;
+  openModal: any;
+}
+
+export interface CommonModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  selectedUser: null;
+}
