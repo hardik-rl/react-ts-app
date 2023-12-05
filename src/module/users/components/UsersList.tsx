@@ -81,7 +81,7 @@ const UsersList = ({
                           <PencilSquareIcon className="w-5 h-5" />
                         </button>
                         <button
-                          className="mx-2"
+                          className="mx-4"
                           onClick={() => deleteModalOnClick(item)}
                         >
                           <TrashIcon className="w-5 h-5 text-red-500" />

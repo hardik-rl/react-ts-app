@@ -6,12 +6,14 @@ import Modal from "../../../shared/components/Modal";
 import CommonModal from "./CommonModal";
 import UsersList from "./UsersList";
 import ConfirmationModal from "../../../shared/components/ConfirmationModal";
+import { useNavigate } from "react-router-dom";
 
 const Users = () => {
   const { data, isLoading } = useUsers();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [deleteModal, setDeleteModal] = useState(false);
+  const history = useNavigate();
 
   const closeModal = () => {
     setSelectedUser(null);
@@ -30,7 +32,9 @@ const Users = () => {
 
   return (
     <>
-      <BackArrow />
+      <button onClick={() => history("/")}>
+        <BackArrow />
+      </button>
       <div className="px-4 sm:px-6 lg:p-8">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
