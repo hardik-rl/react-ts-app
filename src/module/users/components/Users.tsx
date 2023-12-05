@@ -8,7 +8,7 @@ import UsersList from "./UsersList";
 import ConfirmationModal from "../../../shared/components/ConfirmationModal";
 
 const Users = () => {
-  const { data } = useUsers();
+  const { data, isLoading } = useUsers();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [deleteModal, setDeleteModal] = useState(false);
@@ -51,6 +51,7 @@ const Users = () => {
           deleteModalOnClick={deleteModalOnClick}
           editModalOnClick={editModalOnClick}
           data={data}
+          isLoading={isLoading}
         />
       </div>
       <Modal open={isModalOpen} setOpen={closeModal}>

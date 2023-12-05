@@ -21,6 +21,7 @@ export interface AddUsersModalProps {
 
 export interface UserListType {
   data: any;
+  isLoading: boolean;
   editModalOnClick: any;
   deleteModalOnClick: any;
 }
