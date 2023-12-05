@@ -28,10 +28,6 @@ const Users = () => {
     setDeleteModal(true);
   };
 
-
-  console.log(data);
-
-
   return (
     <>
       <BackArrow />

@@ -4,8 +4,9 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteUser } from "../../module/users/Api";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
+import { ConfirmationModalProps } from "../type/type";
 
-const ConfirmationModal = ({ closeModal, selectedUser }: any) => {
+const ConfirmationModal = ({ closeModal, selectedUser }: ConfirmationModalProps) => {
   const queryClient = useQueryClient();
   const { mutate: deleteAdminFn } = useMutation((id: any) => deleteUser(id), {
     onSuccess: () => {
@@ -43,7 +44,7 @@ const ConfirmationModal = ({ closeModal, selectedUser }: any) => {
         </div>
         <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
           <h3 className="text-base font-semibold leading-6 text-gray-900">
-            Delete User
+          Delete User {selectedUser === null ? selectedUser.id : selectedUser.firstname}
           </h3>
           <div className="mt-2">
             <p className="text-sm text-gray-500">

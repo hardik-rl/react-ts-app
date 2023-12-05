@@ -15,3 +15,9 @@ export interface TitleProps {
   type: "button" | "reset" | "submit" | undefined;
   onClick: () => void;
 }
+
+
+export interface ConfirmationModalProps {
+  closeModal: any;
+  selectedUser: any;
+}

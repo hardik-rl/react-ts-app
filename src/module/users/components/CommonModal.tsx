@@ -19,7 +19,7 @@ const CommonModal = ({ isOpen, onClose, selectedUser }: CommonModalProps) => {
   const mutation = useMutation(selectedUser ? updateUser : addUser, {
     onSuccess: () => {
       const actionMessage = selectedUser ? "updated" : "added";
-      toast.success(`User ${actionMessage} successfully`);
+      toast.success(`User ${actionMessage}  successfully`);
       queryClient.invalidateQueries(
         "get-user" as InvalidateQueryFilters<"get-user">
       );
