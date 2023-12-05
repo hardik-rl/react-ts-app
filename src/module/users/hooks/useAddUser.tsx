@@ -2,15 +2,13 @@ import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { addUser } from "../Api";
 import { toast } from "react-toastify";
-import { AddUserFormProps } from "../types";
+import { AddUserFormProps, AddUserProp } from "../types";
 
-interface AddUserProp {
-  onCloseModal: () => void;
-}
-const useAddUser = ({ onCloseModal }: AddUserProp) => {
+const useAddUser = ({ onCloseModal, refetch }: AddUserProp) => {
   return useMutation((data: AddUserFormProps) => addUser(data), {
-    onSuccess: (data) => {
-      toast.success(data?.statusText);
+    onSuccess: () => {
+      toast.success("User Added Successfully");
+      refetch();
       onCloseModal();
     },
     onError: (error: AxiosError<{ message: string }>) => {
