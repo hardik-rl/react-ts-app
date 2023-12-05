@@ -5,21 +5,32 @@ import Button from "../../../shared/components/Button";
 import Modal from "../../../shared/components/Modal";
 import CommonModal from "./CommonModal";
 import UsersList from "./UsersList";
+import ConfirmationModal from "../../../shared/components/ConfirmationModal";
 
 const Users = () => {
   const { data } = useUsers();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
-
-  const openModal = (user: SetStateAction<null>) => {
-    setSelectedUser(user);
-    setIsModalOpen(true);
-  };
+  const [deleteModal, setDeleteModal] = useState(false);
 
   const closeModal = () => {
     setSelectedUser(null);
     setIsModalOpen(false);
   };
+
+  const editModalOnClick = (item: SetStateAction<null>) => {
+    setSelectedUser(item);
+    setIsModalOpen(true);
+  };
+
+  const deleteModalOnClick = (item: SetStateAction<null>) => {
+    setSelectedUser(item);
+    setDeleteModal(true);
+  };
+
+
+  console.log(data);
+
 
   return (
     <>
@@ -40,13 +51,23 @@ const Users = () => {
             />
           </div>
         </div>
-        <UsersList openModal={openModal} data={data} />
+        <UsersList
+          deleteModalOnClick={deleteModalOnClick}
+          editModalOnClick={editModalOnClick}
+          data={data}
+        />
       </div>
       <Modal open={isModalOpen} setOpen={closeModal}>
         <CommonModal
           isOpen={isModalOpen}
           onClose={closeModal}
           selectedUser={selectedUser}
+        />
+      </Modal>
+      <Modal open={deleteModal} setOpen={() => setDeleteModal(false)}>
+        <ConfirmationModal
+          selectedUser={selectedUser}
+          closeModal={() => setDeleteModal(false)}
         />
       </Modal>
     </>

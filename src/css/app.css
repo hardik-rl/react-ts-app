@@ -8,3 +8,6 @@
 .btn-secondary {
   @apply !bg-white text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50;
 }
+.btn-danger {
+  @apply hover:bg-red-500 !bg-red-600 text-white;
+}

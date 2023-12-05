@@ -1,6 +1,12 @@
 import { AddUserFormProps, UserListType } from "../types";
+import { PencilSquareIcon } from "@heroicons/react/24/outline";
+import { TrashIcon } from "@heroicons/react/24/outline";
 
-const UsersList = ({ openModal, data }: UserListType) => {
+const UsersList = ({
+  editModalOnClick,
+  deleteModalOnClick,
+  data,
+}: UserListType) => {
   return (
     <>
       <div className="mt-8 flow-root">
@@ -66,7 +72,15 @@ const UsersList = ({ openModal, data }: UserListType) => {
                       {item.phone}
                     </td>
                     <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-sm font-medium sm:pr-0">
-                      <button onClick={() => openModal(item)}>Edit</button>
+                      <button onClick={() => editModalOnClick(item)}>
+                        <PencilSquareIcon className="w-5 h-5" />
+                      </button>
+                      <button
+                        className="mx-2"
+                        onClick={() => deleteModalOnClick(item)}
+                      >
+                        <TrashIcon className="w-5 h-5 text-red-500" />
+                      </button>
                     </td>
                   </tr>
                 ))}

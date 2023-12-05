@@ -21,7 +21,8 @@ export interface AddUsersModalProps {
 
 export interface UserListType {
   data: any;
-  openModal: any;
+  editModalOnClick: any;
+  deleteModalOnClick: any;
 }
 
 export interface CommonModalProps {
