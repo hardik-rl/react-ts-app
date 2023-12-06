@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import Users from "./module/users/components/Users";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./module/dashboard/Dashboard";
+import Login from "./module/auth/Login";
 
 function App() {
   const queryClient = new QueryClient();
@@ -11,6 +12,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
+        <Route path="login" element={<Login />} />
           <Route path="/" element={<Dashboard />} />
           <Route path="/users" element={<Users />} />
         </Routes>
