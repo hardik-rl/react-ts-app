@@ -43,7 +43,6 @@ const CommonModal = ({ isOpen, onClose, selectedUser }: CommonModalProps) => {
   const handleSubmit = (values: AddUserFormProps) => {
     mutation.mutate(values);
   };
-
   return (
     <div>
       {isOpen && (
@@ -62,6 +61,7 @@ const CommonModal = ({ isOpen, onClose, selectedUser }: CommonModalProps) => {
                     name="id"
                     placeholder="Enter Your Id"
                     as={FormControl}
+                    disabled={selectedUser !== null ? true : false}
                   />
                   <ErrorMessage
                     name="id"

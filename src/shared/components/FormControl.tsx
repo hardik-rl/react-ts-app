@@ -5,10 +5,12 @@ const FormControl = ({
   name,
   value,
   onChange,
+  disabled,
 }: React.InputHTMLAttributes<HTMLInputElement>) => {
   return (
     <div>
       <input
+        disabled={disabled}
         type="text"
         name={name}
         value={value}
