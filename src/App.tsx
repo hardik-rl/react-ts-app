@@ -2,6 +2,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
 import Users from "./module/users/components/Users";
+import ProductsTable from "./module/products/components/ProductsTable";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./module/dashboard/Dashboard";
 
@@ -13,6 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/products" element={<ProductsTable />} />
+          
         </Routes>
       </BrowserRouter>
       <ToastContainer />
