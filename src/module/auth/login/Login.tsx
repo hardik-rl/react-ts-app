@@ -1,10 +1,16 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import FormControl from "../../shared/components/FormControl";
-import FormLabel from "../../shared/components/FormLabel";
-import Button from "../../shared/components/Button";
+import FormControl from "../../../shared/components/FormControl";
+import FormLabel from "../../../shared/components/FormLabel";
+import Button from "../../../shared/components/Button";
+import { useLogin } from "../hooks/useLogin";
+import { useLoginForm } from "../hooks/useLoginForm";
 
 const Login = () => {
+  const { mutate: loginFn } = useLogin();
+  const { handleSubmit, values, errors, handleChange } = useLoginForm(() =>
+    loginFn(values)
+  );
+
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -19,11 +25,22 @@ const Login = () => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" action="#" method="POST">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <FormLabel label="Email address" />
-            <FormControl name="email" type="email" />
+            <FormControl
+              value={values.email}
+              onChange={handleChange}
+              name="email"
+              type="email"
+              placeholder="Enter Your Email"
+            />
           </div>
+          {errors.email ? (
+            <div className="text-red-600 font-semibold mb-2">
+              {errors.email}
+            </div>
+          ) : null}
 
           <div>
             <div className="flex items-center justify-between">
@@ -35,8 +52,20 @@ const Login = () => {
                 Forgot password?
               </Link>
             </div>
-            <FormControl name="password" type="password" />
+            <FormControl
+              onChange={handleChange}
+              value={values.password}
+              name="password"
+              type="password"
+              placeholder="Enter Your Password"
+            />
           </div>
+          {errors.password ? (
+            <div className="text-red-600 font-semibold mb-2">
+              {errors.password}
+            </div>
+          ) : null}
+
           <div>
             <Button
               className="w-full"

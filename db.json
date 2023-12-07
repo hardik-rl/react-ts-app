@@ -1,4 +1,8 @@
 {
+  "register": {
+    "email": "admin@gmail.com",
+    "password": "1154"
+  },
   "users": [
     {
       "id": "200",

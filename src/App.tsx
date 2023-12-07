@@ -5,7 +5,7 @@ import Users from "./module/users/components/Users";
 import ProductsTable from "./module/products/components/ProductsTable";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./module/dashboard/Dashboard";
-import Login from "./module/auth/Login";
+import Login from "./module/auth/login/Login";
 
 function App() {
   const queryClient = new QueryClient();
