@@ -22,3 +22,7 @@ export interface ConfirmationModalProps {
   closeModal: any;
   selectedUser: any;
 }
+
+export interface ButtonProps {
+  onClick: () => void;
+}
