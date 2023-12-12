@@ -21,3 +21,6 @@ export const setToken = (token: string) => {
 export const removeToken = () => {
   return Cookies.remove(TOKEN);
 };
+
+
+export const accessToken = 123;

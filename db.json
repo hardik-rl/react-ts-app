@@ -1,6 +1,9 @@
 {
+  "access_token": {
+    "token": "213456"
+  },
   "login": {
-    "email": "admin@gmail.com",
+    "email": "hardik.radicalloop@gmail.com",
     "password": "1154"
   },
   "users": [

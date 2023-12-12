@@ -9,7 +9,7 @@ export const useLogin = () => {
   const navigate = useNavigate();
   return useMutation((data: LoginFormProps) => signin(data), {
     onSuccess: () => {
-      navigate("/users", { replace: true });
+      navigate("/", { replace: true });
     },
     onError: (error: AxiosError<{ message: string }>) => {
       toast(error.response?.data.message, {
