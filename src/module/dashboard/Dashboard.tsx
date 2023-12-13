@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SelectMenu from "./SelectMenu";
 
 const Dashboard = () => {
 
@@ -99,7 +100,8 @@ const Dashboard = () => {
           </div>
         </div>
       </header>
-      Home
+      {/* Home */}
+      <SelectMenu />
     </div>
   );
 };
