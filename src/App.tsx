@@ -6,6 +6,7 @@ import ProductsTable from "./module/products/components/ProductsTable";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./module/dashboard/Dashboard";
 import Login from "./module/auth/Login";
+import React from "react";
 
 function App() {
   const queryClient = new QueryClient();
@@ -17,7 +18,6 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/users" element={<Users />} />
           <Route path="/products" element={<ProductsTable />} />
-          
         </Routes>
       </BrowserRouter>
       <ToastContainer />

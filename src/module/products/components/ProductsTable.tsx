@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import BackArrow from "../../../shared/components/BackArrow";
+import React from "react";
 
 const ProductsTable = () => {
   const history = useNavigate();
