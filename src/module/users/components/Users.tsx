@@ -7,6 +7,7 @@ import CommonModal from "./CommonModal";
 import UsersList from "./UsersList";
 import ConfirmationModal from "../../../shared/components/ConfirmationModal";
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
 const Users = () => {
   const { data, isLoading } = useUsers();

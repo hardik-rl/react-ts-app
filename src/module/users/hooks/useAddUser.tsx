@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import { addUser } from "../Api";
+import { addUser } from "../api";
 import { toast } from "react-toastify";
 import { AddUserFormProps, AddUserProp } from "../types";
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SelectMenu from "./SelectMenu";
 
 const Dashboard = () => {
 
@@ -7,7 +8,7 @@ const Dashboard = () => {
     { name: "Users", href: "/users" },
     { name: "Post", href: "#" },
     { name: "Comment", href: "#" },
-    { name: "Products", href: "#" },
+    { name: "Products", href: "/products" },
   ];
 
   return (
@@ -99,6 +100,8 @@ const Dashboard = () => {
           </div>
         </div>
       </header>
+      {/* Home */}
+      <SelectMenu />
     </div>
   );
 };

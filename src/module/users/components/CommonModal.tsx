@@ -7,7 +7,7 @@ import {
 } from "@tanstack/react-query";
 import FormControl from "../../../shared/components/FormControl";
 import FormLabel from "../../../shared/components/FormLabel";
-import { addUser, updateUser } from "../Api";
+import { addUser, updateUser } from "../api";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 import { addUserSchema } from "../validation";

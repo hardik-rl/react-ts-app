@@ -1,4 +1,11 @@
 {
+  "access_token": {
+    "token": "213456"
+  },
+  "login": {
+    "email": "hardik@radicalloop.com",
+    "password": "1154"
+  },
   "users": [
     {
       "id": "201",
@@ -13,9 +20,6 @@
       "phone": "9876356782",
       "firstname": "199 demo",
       "lastname": "demo199"
-    },
-    {
-      "id": "TySkRfP"
     },
     {
       "id": "qwtn13Z"
@@ -381,11 +385,18 @@
       "phone": "+1 (887) 572-3425"
     },
     {
-      "id": "Aliquid saepe ducimu",
-      "firstname": "Mechelle",
-      "lastname": "Kim",
-      "email": "rafamoq@mailinator.com",
-      "phone": "+1 (869) 803-4983"
+      "id": "Inventore quis rerum",
+      "firstname": "Lee",
+      "lastname": "Pearson",
+      "email": "pajyvozo@mailinator.com",
+      "phone": "+1 (201) 357-5693"
+    },
+    {
+      "id": "Nam in incididunt ab",
+      "firstname": "DJ2000",
+      "lastname": "Franco",
+      "email": "xygituqe@mailinator.com",
+      "phone": "+1 (846) 841-3906"
     }
   ]
 }
