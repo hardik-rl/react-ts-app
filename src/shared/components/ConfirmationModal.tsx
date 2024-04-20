@@ -1,7 +1,7 @@
 import { TrashIcon } from "@heroicons/react/24/outline";
 import Button from "./Button";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { deleteUser } from "../../module/users/Api";
+import { deleteUser } from "../../module/users/api";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 import { ConfirmationModalProps } from "../type/type";
