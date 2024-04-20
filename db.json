@@ -1,4 +1,11 @@
 {
+  "access_token": {
+    "token": "213456"
+  },
+  "login": {
+    "email": "hardik@radicalloop.com",
+    "password": "1154"
+  },
   "users": [
     {
       "id": "200",
@@ -389,6 +396,13 @@
       "lastname": "Pearson",
       "email": "pajyvozo@mailinator.com",
       "phone": "+1 (201) 357-5693"
+    },
+    {
+      "id": "Nam in incididunt ab",
+      "firstname": "DJ2000",
+      "lastname": "Franco",
+      "email": "xygituqe@mailinator.com",
+      "phone": "+1 (846) 841-3906"
     }
   ]
 }
