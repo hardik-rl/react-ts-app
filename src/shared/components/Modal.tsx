@@ -1,6 +1,7 @@
 import { Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ModalProps } from "../type/type";
+import React from "react";
 
 const Modal = ({ open, setOpen, children }: ModalProps) => {
   const cancelButtonRef = useRef(null);
