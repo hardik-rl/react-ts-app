@@ -7,6 +7,7 @@ import CommonModal from "./CommonModal";
 import UsersList from "./UsersList";
 import ConfirmationModal from "../../../shared/components/ConfirmationModal";
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
 const Users = () => {
   const { data, isLoading } = useUsers();
@@ -32,9 +33,7 @@ const Users = () => {
 
   return (
     <>
-      <button onClick={() => history("/")}>
-        <BackArrow />
-      </button>
+      <BackArrow onClick={() => history("/")}/>
       <div className="px-4 sm:px-6 lg:p-8">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">

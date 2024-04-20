@@ -11,6 +11,7 @@ export interface ModalProps {
 
 export interface TitleProps {
   title: string;
+  className?: string;
   variant?: "primary" | "secondary" | "danger";
   type: "button" | "reset" | "submit" | undefined;
   onClick: () => void;
@@ -20,4 +21,8 @@ export interface TitleProps {
 export interface ConfirmationModalProps {
   closeModal: any;
   selectedUser: any;
+}
+
+export interface ButtonProps {
+  onClick: () => void;
 }

@@ -5,6 +5,7 @@ import { deleteUser } from "../../module/users/api";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 import { ConfirmationModalProps } from "../type/type";
+import React from "react";
 
 const ConfirmationModal = ({ closeModal, selectedUser }: ConfirmationModalProps) => {
   const queryClient = useQueryClient();

@@ -7,7 +7,7 @@ const Dashboard = () => {
     { name: "Users", href: "/users" },
     { name: "Post", href: "#" },
     { name: "Comment", href: "#" },
-    { name: "Products", href: "#" },
+    { name: "Products", href: "/products" },
   ];
 
   return (
@@ -99,6 +99,7 @@ const Dashboard = () => {
           </div>
         </div>
       </header>
+      Home
     </div>
   );
 };

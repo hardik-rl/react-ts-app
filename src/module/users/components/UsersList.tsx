@@ -2,6 +2,7 @@ import { AddUserFormProps, UserListType } from "../types";
 import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import Loader from "../../../shared/components/Loader";
+import React from "react";
 
 const UsersList = ({
   editModalOnClick,
