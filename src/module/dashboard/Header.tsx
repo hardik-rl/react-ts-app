@@ -1,13 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SelectMenu from "./SelectMenu";
 
-const Dashboard = () => {
+const Header = () => {
 
   const navigation = [
     { name: "Users", href: "/users" },
-    { name: "Post", href: "#" },
-    { name: "Comment", href: "#" },
     { name: "Products", href: "/products" },
   ];
 
@@ -18,7 +15,7 @@ const Dashboard = () => {
           className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
           aria-label="Global"
         >
-          <div className="flex lg:flex-1">
+          <div className="flex">
             <Link to="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
@@ -37,7 +34,7 @@ const Dashboard = () => {
               {/* <Bars3Icon className="h-6 w-6" aria-hidden="true" /> */}
             </button>
           </div>
-          <div className="hidden lg:flex lg:gap-x-12">
+          <div className="hidden lg:flex lg:gap-x-4 ml-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -101,9 +98,8 @@ const Dashboard = () => {
         </div>
       </header>
       {/* Home */}
-      <SelectMenu />
     </div>
   );
 };
 
-export default Dashboard;
+export default Header;

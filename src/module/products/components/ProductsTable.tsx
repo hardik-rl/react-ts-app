@@ -1,12 +1,44 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BackArrow from "../../../shared/components/BackArrow";
 import React from "react";
 
 const ProductsTable = () => {
   const history = useNavigate();
+  const productData = [
+    {
+      name: 'Apple MacBook Pro 17"',
+      color: "Silver",
+      category: "Laptop",
+      price: "$2999",
+    },
+    {
+      name: "Microsoft Surface Pro",
+      color: "White",
+      category: "Laptop PC",
+      price: "$1999",
+    },
+    {
+      name: "Magic Mouse 2",
+      color: "Black",
+      category: "Accessories",
+      price: "$99",
+    },
+    {
+      name: "Google Pixel Phone",
+      color: "Gray",
+      category: "Phone",
+      price: "$799",
+    },
+    {
+      name: "Apple Watch 5",
+      color: "Red",
+      category: "Wearables",
+      price: "$999",
+    },
+  ];
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg px-4 sm:px-6 lg:p-8">
-     <BackArrow onClick={() => history("/")}/>
+      <BackArrow onClick={() => history("/")} />
       <table className="w-full mt-5 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
@@ -28,101 +60,32 @@ const ProductsTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-            <th
-              scope="row"
-              className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          {productData.map((product, index) => (
+            <tr
+              key={index}
+              className={`bg-${index % 2 === 0 ? "white" : "gray-50"} dark:bg-${
+                index % 2 === 0 ? "gray-900" : "gray-800"
+              } border-b dark:border-gray-700`}
             >
-              Apple MacBook Pro 17"
-            </th>
-            <td className="px-6 py-4">Silver</td>
-            <td className="px-6 py-4">Laptop</td>
-            <td className="px-6 py-4">$2999</td>
-            <td className="px-6 py-4">
-              <a
-                href="#"
-                className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              <th
+                scope="row"
+                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                Edit
-              </a>
-            </td>
-          </tr>
-          <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-            <th
-              scope="row"
-              className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Microsoft Surface Pro
-            </th>
-            <td className="px-6 py-4">White</td>
-            <td className="px-6 py-4">Laptop PC</td>
-            <td className="px-6 py-4">$1999</td>
-            <td className="px-6 py-4">
-              <a
-                href="#"
-                className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >
-                Edit
-              </a>
-            </td>
-          </tr>
-          <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-            <th
-              scope="row"
-              className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Magic Mouse 2
-            </th>
-            <td className="px-6 py-4">Black</td>
-            <td className="px-6 py-4">Accessories</td>
-            <td className="px-6 py-4">$99</td>
-            <td className="px-6 py-4">
-              <a
-                href="#"
-                className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >
-                Edit
-              </a>
-            </td>
-          </tr>
-          <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-            <th
-              scope="row"
-              className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Google Pixel Phone
-            </th>
-            <td className="px-6 py-4">Gray</td>
-            <td className="px-6 py-4">Phone</td>
-            <td className="px-6 py-4">$799</td>
-            <td className="px-6 py-4">
-              <a
-                href="#"
-                className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >
-                Edit
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <th
-              scope="row"
-              className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Apple Watch 5
-            </th>
-            <td className="px-6 py-4">Red</td>
-            <td className="px-6 py-4">Wearables</td>
-            <td className="px-6 py-4">$999</td>
-            <td className="px-6 py-4">
-              <a
-                href="#"
-                className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >
-                Edit
-              </a>
-            </td>
-          </tr>
+                {product.name}
+              </th>
+              <td className="px-6 py-4">{product.color}</td>
+              <td className="px-6 py-4">{product.category}</td>
+              <td className="px-6 py-4">{product.price}</td>
+              <td className="px-6 py-4">
+                <Link
+                  to="#"
+                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                >
+                  Edit
+                </Link>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

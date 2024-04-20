@@ -32,14 +32,9 @@ const Users = () => {
   };
   return (
     <>
-      <BackArrow onClick={()=> history("/")} />
       <div className="px-4 sm:px-6 lg:p-8">
-        <div className="sm:flex sm:items-center">
-          <div className="sm:flex-auto">
-            <h1 className="text-2xl font-semibold leading-6 text-gray-900">
-              Users
-            </h1>
-          </div>
+        <div className="flex justify-between">
+          <BackArrow onClick={() => history("/")} />
           <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
             <Button
               type="button"
