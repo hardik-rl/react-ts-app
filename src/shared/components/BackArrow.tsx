@@ -1,6 +1,5 @@
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import { ButtonProps } from "../type/type";
-import React from "react";
 
 const BackArrow = ({ onClick }: ButtonProps) => {
   return (

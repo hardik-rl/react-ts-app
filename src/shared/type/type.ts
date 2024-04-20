@@ -17,12 +17,11 @@ export interface TitleProps {
   onClick: () => void;
 }
 
-
 export interface ConfirmationModalProps {
   closeModal: any;
   selectedUser: any;
 }
 
 export interface ButtonProps {
-  onClick: () => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }

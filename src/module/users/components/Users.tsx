@@ -30,10 +30,9 @@ const Users = () => {
     setSelectedUser(item);
     setDeleteModal(true);
   };
-
   return (
     <>
-      <BackArrow onClick={() => history("/")}/>
+      <BackArrow onClick={()=> history("/")} />
       <div className="px-4 sm:px-6 lg:p-8">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">

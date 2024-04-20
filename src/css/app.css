@@ -11,3 +11,7 @@
 .btn-danger {
   @apply hover:bg-red-500 !bg-red-600 text-white;
 }
+
+input:disabled {
+  @apply opacity-60;
+}
