@@ -4,10 +4,11 @@ import BackArrow from "../../../shared/components/BackArrow";
 import Button from "../../../shared/components/Button";
 import Modal from "../../../shared/components/Modal";
 import CommonModal from "./CommonModal";
-import UsersList from "./UsersList";
 import ConfirmationModal from "../../../shared/components/ConfirmationModal";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import Table from "../../../shared/components/Table";
+import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
 
 const Users = () => {
   const { data, isLoading } = useUsers();
@@ -30,10 +31,28 @@ const Users = () => {
     setSelectedUser(item);
     setDeleteModal(true);
   };
+  const tableHeaders = ["Id", "Name", "Last Name", "Email", "Phone", "Actions"];
   return (
     <>
-      <div className="px-4 sm:px-6 lg:p-8">
-        <div className="flex justify-between">
+      <div>
+        <Table
+          tableHeaders={tableHeaders}
+          tableBody={data?.data || []}
+          onEdit={editModalOnClick}
+          isAction={(item: any) => (
+            <>
+              <button onClick={() => editModalOnClick(item)}>
+                <PencilSquareIcon className="w-5 h-5" />
+              </button>
+              <button className="mx-4" onClick={() => deleteModalOnClick(item)}>
+                <TrashIcon className="w-5 h-5 text-red-500" />
+              </button>
+            </>
+          )}
+          deleteModalOnClick={deleteModalOnClick}
+        />
+
+        {/* <div className="flex justify-between">
           <BackArrow onClick={() => history("/")} />
           <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
             <Button
@@ -43,13 +62,7 @@ const Users = () => {
               onClick={() => setIsModalOpen(true)}
             />
           </div>
-        </div>
-        <UsersList
-          deleteModalOnClick={deleteModalOnClick}
-          editModalOnClick={editModalOnClick}
-          data={data}
-          isLoading={isLoading}
-        />
+        </div> */}
       </div>
       <Modal open={isModalOpen} setOpen={closeModal}>
         <CommonModal

@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Users from "./module/users/components/Users";
-import ProductsTable from "./module/products/components/ProductsTable";
+import Products from "./module/products/components/Products";
 import Header from "./module/dashboard/Header";
 
 const MainLayout = () => {
@@ -11,7 +11,7 @@ const MainLayout = () => {
       <Header />
       <Routes>
         <Route path="/users" element={<Users />} />
-        <Route path="/products" element={<ProductsTable />} />
+        <Route path="/products" element={<Products />} />
       </Routes>
     </>
   );
